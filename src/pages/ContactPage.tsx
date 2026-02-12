@@ -151,12 +151,12 @@ const ContactPage = () => {
                       <div className="text-xs">Mon–Fri, 8AM–6PM EST</div>
                     </div>
                   </a>
-                  <a href="mailto:info@smartbilling.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors">
+                  <a href="mailto:info@smartbillinginc.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors">
                     <div className="w-10 h-10 rounded-lg bg-gradient-accent flex items-center justify-center flex-shrink-0">
                       <Mail className="w-4 h-4 text-primary-foreground" />
                     </div>
                     <div>
-                      <div className="font-semibold text-foreground">info@smartbilling.com</div>
+                      <div className="font-semibold text-foreground">info@smartbillinginc.com</div>
                       <div className="text-xs">We respond within 24 hours</div>
                     </div>
                   </a>

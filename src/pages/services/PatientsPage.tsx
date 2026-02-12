@@ -176,7 +176,7 @@ const PatientsPage = () => {
                 <div className="w-3 h-3 rounded-full bg-destructive/60" />
                 <div className="w-3 h-3 rounded-full bg-yellow-400/60" />
                 <div className="w-3 h-3 rounded-full bg-accent/60" />
-                <span className="ml-2 text-xs text-muted-foreground">patient-portal.smartbilling.com</span>
+                <span className="ml-2 text-xs text-muted-foreground">patient-portal.smartbillinginc.com</span>
               </div>
               <div className="space-y-4">
                 <div className="bg-card border border-border rounded-xl p-4">
