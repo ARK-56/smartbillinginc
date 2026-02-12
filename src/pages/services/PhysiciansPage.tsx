@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { TrendingUp, Brain, BarChart3, Clock, FileCheck, Zap } from "lucide-react";
+import { Link } from "react-router-dom";
+import { TrendingUp, Brain, BarChart3, Clock, FileCheck, Zap, CheckCircle, ArrowRight, Users, Award } from "lucide-react";
 import PageHero from "@/components/PageHero";
 
 const features = [
@@ -9,6 +10,19 @@ const features = [
   { icon: Clock, title: "48-Hour Turnaround", description: "Claims processed and submitted within 48 hours of receipt. Faster submissions mean faster payments." },
   { icon: FileCheck, title: "Credentialing Support", description: "Full-service provider credentialing and enrollment to ensure maximum payer participation and reimbursement." },
   { icon: Zap, title: "Denial Management", description: "Proactive denial prevention and aggressive follow-up on denied claims to recover every dollar you've earned." },
+];
+
+const processSteps = [
+  { step: "01", title: "Free Revenue Audit", description: "We analyze your current billing to identify revenue leaks and areas for improvement." },
+  { step: "02", title: "Seamless Onboarding", description: "We integrate with your EHR/PM system and train your team — zero disruption to operations." },
+  { step: "03", title: "AI-Powered Claims", description: "Every claim is scrubbed by our AI engine before submission, catching errors humans miss." },
+  { step: "04", title: "Revenue Growth", description: "Watch your collections increase and denials decrease with real-time analytics dashboards." },
+];
+
+const specialties = [
+  "Family Medicine", "Internal Medicine", "Cardiology", "Orthopedics",
+  "Dermatology", "Neurology", "Gastroenterology", "Pediatrics",
+  "Urology", "Pulmonology", "Oncology", "OB/GYN",
 ];
 
 const PhysiciansPage = () => {
@@ -22,6 +36,8 @@ const PhysiciansPage = () => {
         ctaLabel="Request a Revenue Analysis"
         ctaHref="/contact"
       />
+
+      {/* Stats + Features */}
       <section className="py-20 bg-card">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
@@ -79,6 +95,131 @@ const PhysiciansPage = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center mb-14">
+            <span className="text-sm font-semibold text-primary tracking-wider uppercase">Our Process</span>
+            <h2 className="text-3xl md:text-4xl font-bold mt-3 mb-4">From Audit to Revenue Growth</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              A proven four-step process that transforms your revenue cycle in as little as 90 days.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {processSteps.map((step, i) => (
+              <motion.div
+                key={step.step}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="relative"
+              >
+                <div className="bg-card border border-border rounded-2xl p-7 h-full">
+                  <div className="text-4xl font-extrabold text-primary/20 mb-4">{step.step}</div>
+                  <h3 className="text-lg font-bold mb-2">{step.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{step.description}</p>
+                </div>
+                {i < processSteps.length - 1 && (
+                  <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2 z-10">
+                    <ArrowRight className="w-6 h-6 text-primary/30" />
+                  </div>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Specialties */}
+      <section className="py-20 bg-card">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <span className="text-sm font-semibold text-primary tracking-wider uppercase">Specialties</span>
+              <h2 className="text-3xl md:text-4xl font-bold mt-3 mb-6">
+                We Serve <span className="text-gradient-primary">Every Specialty</span>
+              </h2>
+              <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
+                Our certified coders and billing specialists have deep expertise across all major medical specialties. We understand the unique coding and payer requirements for each.
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                {specialties.map((s) => (
+                  <div key={s} className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                    <span className="text-sm font-medium">{s}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-5"
+            >
+              <div className="bg-gradient-hero rounded-2xl p-8">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary-foreground/10 flex items-center justify-center">
+                    <Users className="w-6 h-6 text-primary-foreground" />
+                  </div>
+                  <div>
+                    <div className="text-2xl font-extrabold text-primary-foreground">500+</div>
+                    <div className="text-primary-foreground/60 text-sm">Practices Served</div>
+                  </div>
+                </div>
+                <p className="text-primary-foreground/70 text-sm leading-relaxed">
+                  From solo practitioners to 50+ provider groups, we scale our solutions to match your practice size and specialty needs.
+                </p>
+              </div>
+              <div className="bg-gradient-hero rounded-2xl p-8">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary-foreground/10 flex items-center justify-center">
+                    <Award className="w-6 h-6 text-primary-foreground" />
+                  </div>
+                  <div>
+                    <div className="text-2xl font-extrabold text-primary-foreground">15+ Years</div>
+                    <div className="text-primary-foreground/60 text-sm">Industry Experience</div>
+                  </div>
+                </div>
+                <p className="text-primary-foreground/70 text-sm leading-relaxed">
+                  Our leadership team brings decades of healthcare revenue cycle management expertise to every client engagement.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 bg-gradient-hero">
+        <div className="container mx-auto px-4 lg:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
+              Ready to Boost Your Revenue?
+            </h2>
+            <p className="text-primary-foreground/70 text-lg mb-8 max-w-xl mx-auto">
+              Get a free revenue analysis and see how much more you could be collecting.
+            </p>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 bg-gradient-primary text-primary-foreground px-8 py-4 rounded-xl font-bold hover:opacity-90 transition-opacity"
+            >
+              Request Free Revenue Analysis <ArrowRight className="w-5 h-5" />
+            </Link>
+          </motion.div>
         </div>
       </section>
     </>
