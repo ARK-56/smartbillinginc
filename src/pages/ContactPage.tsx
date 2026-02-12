@@ -111,12 +111,12 @@ const ContactPage = () => {
               <div className="bg-background border border-border rounded-2xl p-7">
                 <h3 className="font-bold mb-5">Direct Contact</h3>
                 <div className="space-y-4">
-                  <a href="tel:+18001234567" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors">
+                  <a href="tel:+15102902229" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors">
                     <div className="w-10 h-10 rounded-lg bg-gradient-primary flex items-center justify-center flex-shrink-0">
                       <Phone className="w-4 h-4 text-primary-foreground" />
                     </div>
                     <div>
-                      <div className="font-semibold text-foreground">(800) 123-4567</div>
+                      <div className="font-semibold text-foreground">+1 (510) 290-2229</div>
                       <div className="text-xs">Mon–Fri, 8AM–6PM EST</div>
                     </div>
                   </a>
@@ -135,7 +135,7 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <div className="font-semibold text-foreground">Our Office</div>
-                      <div className="text-xs">123 Healthcare Blvd, Suite 200<br />New York, NY 10001</div>
+                      <div className="text-xs">3155 Kearney St, Ste 170 Room 2<br />Fremont, CA 94538</div>
                     </div>
                   </div>
                 </div>

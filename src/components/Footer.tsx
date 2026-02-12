@@ -38,7 +38,7 @@ const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-sky-light" />
-                <a href="tel:+18001234567" className="hover:text-primary-foreground transition-colors">(800) 123-4567</a>
+                <a href="tel:+15102902229" className="hover:text-primary-foreground transition-colors">+1 (510) 290-2229</a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-sky-light" />
@@ -46,7 +46,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-sky-light mt-0.5" />
-                <span>123 Healthcare Blvd, Suite 200, New York, NY 10001</span>
+                <span>3155 Kearney St, Ste 170 Room 2, Fremont, CA 94538</span>
               </li>
             </ul>
           </div>
