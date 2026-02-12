@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div>
-            <img src={logo} alt="Smart Billing" className="h-8 w-auto mb-4 brightness-0 invert" />
+            <img src={logo} alt="Smart Billing" className="h-12 w-auto mb-4 brightness-0 invert" />
             <p className="text-sm leading-relaxed">
               Leading medical billing company empowering healthcare providers and patients with seamless RCM solutions.
             </p>
