@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 const CTASection = () => {
@@ -21,12 +22,12 @@ const CTASection = () => {
               Discover how much revenue you're leaving on the table. Our experts will analyze your billing process and identify immediate opportunities.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="#"
+              <Link
+                to="/contact"
                 className="inline-flex items-center justify-center gap-2 bg-gradient-primary text-primary-foreground px-8 py-4 rounded-xl text-base font-bold hover:opacity-90 transition-opacity"
               >
                 Schedule Your Audit <ArrowRight className="w-5 h-5" />
-              </a>
+              </Link>
               <a
                 href="tel:+18001234567"
                 className="inline-flex items-center justify-center gap-2 border border-primary-foreground/20 text-primary-foreground px-8 py-4 rounded-xl text-base font-semibold hover:bg-primary-foreground/5 transition-colors"

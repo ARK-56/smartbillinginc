@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { User, Stethoscope, Building2 } from "lucide-react";
 
 const paths = [
@@ -7,18 +8,21 @@ const paths = [
     title: "Patients",
     description: "Transparent billing, insurance verification & easy online payments.",
     color: "primary",
+    href: "/services/patients",
   },
   {
     icon: Stethoscope,
     title: "Physicians & Practices",
     description: "Reduce Days in AR with AI-powered claim scrubbing & revenue optimization.",
     color: "accent",
+    href: "/services/physicians",
   },
   {
     icon: Building2,
     title: "Hospitals & Enterprise",
     description: "Scalable RCM, denial management & seamless API interoperability.",
     color: "primary",
+    href: "/services/hospitals",
   },
 ];
 
@@ -43,13 +47,17 @@ const SegmentedPaths = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="group relative bg-card border border-border rounded-2xl p-8 hover:shadow-elevated transition-all duration-300 hover:-translate-y-1"
             >
-              <div className={`inline-flex items-center justify-center w-14 h-14 rounded-xl mb-6 ${path.color === 'accent' ? 'bg-gradient-accent' : 'bg-gradient-primary'}`}>
-                <path.icon className="w-7 h-7 text-primary-foreground" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">{path.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{path.description}</p>
+              <Link
+                to={path.href}
+                className="group block relative bg-card border border-border rounded-2xl p-8 hover:shadow-elevated transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className={`inline-flex items-center justify-center w-14 h-14 rounded-xl mb-6 ${path.color === 'accent' ? 'bg-gradient-accent' : 'bg-gradient-primary'}`}>
+                  <path.icon className="w-7 h-7 text-primary-foreground" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">{path.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{path.description}</p>
+              </Link>
             </motion.div>
           ))}
         </div>

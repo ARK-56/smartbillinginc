@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { ArrowRight, ShieldCheck } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 
@@ -52,18 +53,18 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className="inline-flex items-center justify-center gap-2 bg-gradient-primary text-primary-foreground px-8 py-4 rounded-xl text-base font-bold hover:opacity-90 transition-opacity shadow-elevated"
             >
               Get Started <ArrowRight className="w-5 h-5" />
-            </a>
-            <a
-              href="#services"
+            </Link>
+            <Link
+              to="/services/physicians"
               className="inline-flex items-center justify-center gap-2 border border-primary-foreground/20 text-primary-foreground px-8 py-4 rounded-xl text-base font-semibold hover:bg-primary-foreground/5 transition-colors"
             >
               Explore Services
-            </a>
+            </Link>
           </motion.div>
         </div>
       </div>
