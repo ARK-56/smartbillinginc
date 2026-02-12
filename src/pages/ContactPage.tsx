@@ -1,15 +1,38 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Send, Loader2 } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 import PageHero from "@/components/PageHero";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({ name: "", email: "", volume: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke("send-contact-email", {
+        body: formData,
+      });
+
+      if (error) throw error;
+
+      setSubmitted(true);
+    } catch (error: any) {
+      console.error("Error sending form:", error);
+      toast({
+        title: "Something went wrong",
+        description: "Please try again or contact us directly by phone.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -92,9 +115,17 @@ const ContactPage = () => {
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-gradient-primary text-primary-foreground py-3.5 rounded-xl font-bold hover:opacity-90 transition-opacity"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-primary text-primary-foreground py-3.5 rounded-xl font-bold hover:opacity-90 transition-opacity disabled:opacity-50 flex items-center justify-center gap-2"
                   >
-                    Submit Request
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      "Submit Request"
+                    )}
                   </button>
                 </form>
               )}
