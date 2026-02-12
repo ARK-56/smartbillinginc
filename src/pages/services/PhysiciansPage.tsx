@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { TrendingUp, Brain, BarChart3, Clock, FileCheck, Zap, CheckCircle, ArrowRight, Users, Award } from "lucide-react";
+import { TrendingUp, Brain, BarChart3, Clock, FileCheck, Zap, CheckCircle, ArrowRight, Users, Award, Target, Layers, Shield, Stethoscope, Star, DollarSign } from "lucide-react";
 import PageHero from "@/components/PageHero";
 
 const features = [
@@ -23,6 +23,18 @@ const specialties = [
   "Family Medicine", "Internal Medicine", "Cardiology", "Orthopedics",
   "Dermatology", "Neurology", "Gastroenterology", "Pediatrics",
   "Urology", "Pulmonology", "Oncology", "OB/GYN",
+];
+
+const whySwitch = [
+  { icon: Target, title: "Revenue Leakage Detection", description: "Most practices lose 10-15% of revenue to coding errors, missed charges, and slow follow-up. We find and fix those leaks." },
+  { icon: Layers, title: "End-to-End RCM", description: "From patient registration and eligibility checks through final payment posting — we manage the entire revenue cycle." },
+  { icon: Shield, title: "Compliance Assurance", description: "Stay ahead of regulatory changes with our compliance team monitoring CMS updates, ICD-10 changes, and payer policy shifts." },
+  { icon: DollarSign, title: "Cost Reduction", description: "Reduce billing staff overhead by up to 40% while improving collection rates and reducing administrative burden." },
+];
+
+const testimonials = [
+  { name: "Dr. Michael Chen", specialty: "Cardiology", quote: "Smart Billing increased our collections by 32% in the first quarter. Their AI scrubber catches coding issues we never would have found.", rating: 5 },
+  { name: "Dr. Lisa Patel", specialty: "Family Medicine", quote: "The transition was seamless. Within 48 hours our claims were being processed, and we saw results within the first month.", rating: 5 },
 ];
 
 const PhysiciansPage = () => {
@@ -98,8 +110,41 @@ const PhysiciansPage = () => {
         </div>
       </section>
 
-      {/* How It Works */}
+      {/* Why Switch */}
       <section className="py-20 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center mb-14">
+            <span className="text-sm font-semibold text-primary tracking-wider uppercase">Why Smart Billing</span>
+            <h2 className="text-3xl md:text-4xl font-bold mt-3 mb-4">Why Practices Switch to Us</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              In-house billing teams can't match the technology, scale, and expertise of a dedicated RCM partner.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {whySwitch.map((item, i) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className="bg-card border border-border rounded-2xl p-7 flex gap-5"
+              >
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-primary flex-shrink-0">
+                  <item.icon className="w-6 h-6 text-primary-foreground" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold mb-2">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-20 bg-card">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-14">
             <span className="text-sm font-semibold text-primary tracking-wider uppercase">Our Process</span>
@@ -118,7 +163,7 @@ const PhysiciansPage = () => {
                 transition={{ delay: i * 0.1 }}
                 className="relative"
               >
-                <div className="bg-card border border-border rounded-2xl p-7 h-full">
+                <div className="bg-background border border-border rounded-2xl p-7 h-full">
                   <div className="text-4xl font-extrabold text-primary/20 mb-4">{step.step}</div>
                   <h3 className="text-lg font-bold mb-2">{step.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{step.description}</p>
@@ -128,6 +173,44 @@ const PhysiciansPage = () => {
                     <ArrowRight className="w-6 h-6 text-primary/30" />
                   </div>
                 )}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center mb-14">
+            <span className="text-sm font-semibold text-primary tracking-wider uppercase">Success Stories</span>
+            <h2 className="text-3xl md:text-4xl font-bold mt-3 mb-4">Trusted by Physicians</h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {testimonials.map((t, i) => (
+              <motion.div
+                key={t.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-card border border-border rounded-2xl p-8"
+              >
+                <div className="flex gap-1 mb-4">
+                  {Array.from({ length: t.rating }).map((_, j) => (
+                    <Star key={j} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-foreground leading-relaxed mb-6 italic">"{t.quote}"</p>
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-full bg-gradient-primary flex items-center justify-center">
+                    <Stethoscope className="w-5 h-5 text-primary-foreground" />
+                  </div>
+                  <div>
+                    <div className="font-bold text-sm">{t.name}</div>
+                    <div className="text-xs text-muted-foreground">{t.specialty}</div>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
