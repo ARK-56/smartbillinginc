@@ -17,7 +17,6 @@ const navLinks = [
   },
   { label: "Technology", href: "/technology" },
   { label: "Industry News", href: "/industry-news" },
-  { label: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
@@ -96,7 +95,7 @@ const Navbar = () => {
 
         <div className="hidden lg:flex items-center gap-3">
           <Link to="/contact" className="bg-gradient-primary text-primary-foreground px-5 py-2.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity">
-            Get Started
+            Contact Us
           </Link>
         </div>
 
@@ -151,7 +150,7 @@ const Navbar = () => {
                 )
               )}
               <Link to="/contact" className="bg-gradient-primary text-primary-foreground px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2" onClick={() => setOpen(false)}>
-                Get Started
+                Contact Us
               </Link>
             </div>
           </motion.div>
